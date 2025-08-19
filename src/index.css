@@ -8,34 +8,34 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Healthcare-focused color palette */
+    /* White and red healthcare theme */
     --background: 0 0% 100%;
-    --foreground: 213 31% 13%;
+    --foreground: 0 0% 9%;
 
     --card: 0 0% 100%;
-    --card-foreground: 213 31% 13%;
+    --card-foreground: 0 0% 9%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 213 31% 13%;
+    --popover-foreground: 0 0% 9%;
 
-    /* Medical blue - trustworthy and professional */
-    --primary: 213 89% 42%;
+    /* Primary red - professional medical */
+    --primary: 0 84% 60%;
     --primary-foreground: 0 0% 100%;
-    --primary-hover: 213 89% 35%;
+    --primary-hover: 0 84% 55%;
 
-    /* Soft healthcare tones */
-    --secondary: 210 20% 96%;
-    --secondary-foreground: 213 31% 13%;
+    /* Soft white/gray tones */
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 9%;
 
-    --muted: 210 20% 96%;
-    --muted-foreground: 213 20% 45%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
 
-    /* Wellness green accent */
-    --accent: 142 76% 36%;
+    /* Light red accent */
+    --accent: 0 84% 60%;
     --accent-foreground: 0 0% 100%;
-    --accent-light: 142 45% 93%;
+    --accent-light: 0 45% 93%;
 
-    /* Healthcare status colors */
+    /* Status colors */
     --success: 142 76% 36%;
     --success-foreground: 0 0% 100%;
     --warning: 43 96% 56%;
@@ -67,28 +67,28 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 213 31% 9%;
-    --foreground: 210 20% 96%;
+    --background: 0 0% 9%;
+    --foreground: 0 0% 96%;
 
-    --card: 213 31% 11%;
-    --card-foreground: 210 20% 96%;
+    --card: 0 0% 11%;
+    --card-foreground: 0 0% 96%;
 
-    --popover: 213 31% 11%;
-    --popover-foreground: 210 20% 96%;
+    --popover: 0 0% 11%;
+    --popover-foreground: 0 0% 96%;
 
-    --primary: 213 89% 55%;
+    --primary: 0 84% 65%;
     --primary-foreground: 0 0% 100%;
-    --primary-hover: 213 89% 48%;
+    --primary-hover: 0 84% 60%;
 
-    --secondary: 213 19% 18%;
-    --secondary-foreground: 210 20% 96%;
+    --secondary: 0 0% 18%;
+    --secondary-foreground: 0 0% 96%;
 
-    --muted: 213 19% 18%;
-    --muted-foreground: 213 20% 65%;
+    --muted: 0 0% 18%;
+    --muted-foreground: 0 0% 65%;
 
-    --accent: 142 76% 45%;
+    --accent: 0 84% 65%;
     --accent-foreground: 0 0% 100%;
-    --accent-light: 142 25% 15%;
+    --accent-light: 0 25% 15%;
 
     --success: 142 76% 45%;
     --success-foreground: 0 0% 100%;
@@ -111,11 +111,11 @@ All colors MUST be HSL.
   }
 }
 
-/* Healthcare-specific gradients and effects */
+/* Medical-specific gradients and effects */
 :root {
-  --gradient-healthcare: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+  --gradient-healthcare: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary) / 0.8));
   --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
-  --shadow-healthcare: 0 10px 30px -10px hsl(var(--primary) / 0.1);
+  --shadow-healthcare: 0 10px 30px -10px hsl(var(--primary) / 0.15);
   --shadow-card: 0 4px 6px -1px hsl(var(--primary) / 0.1);
 }
 

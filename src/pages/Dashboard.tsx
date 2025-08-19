@@ -264,8 +264,8 @@ function DoctorDashboard() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <Card className="shadow-card">
           <CardHeader>
-            <CardTitle>Validation Queue</CardTitle>
-            <CardDescription>AI responses awaiting your review</CardDescription>
+            <CardTitle>Question Response Validation Queue</CardTitle>
+            <CardDescription>AI-generated responses to patient questions awaiting your medical review</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="space-y-3">
@@ -290,8 +290,8 @@ function DoctorDashboard() {
 
         <Card className="shadow-card">
           <CardHeader>
-            <CardTitle>Recent Validations</CardTitle>
-            <CardDescription>Your recent validation activity</CardDescription>
+            <CardTitle>Recent Response Validations</CardTitle>
+            <CardDescription>AI responses you recently reviewed and validated</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="space-y-3">
@@ -371,8 +371,8 @@ function AdminDashboard() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <Card className="shadow-card">
           <CardHeader>
-            <CardTitle>Pending Doctor Approvals</CardTitle>
-            <CardDescription>Doctor registrations awaiting approval</CardDescription>
+            <CardTitle>Doctor Registration Approvals</CardTitle>
+            <CardDescription>New doctor registrations with documents awaiting verification</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="space-y-3">

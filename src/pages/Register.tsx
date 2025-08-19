@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Heart, User, Mail, Lock, Phone, Calendar, UserCheck } from "lucide-react";
+import { Heart, User, Mail, Lock, Phone, Calendar, UserCheck, Upload } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 export default function Register() {
@@ -21,12 +21,13 @@ export default function Register() {
     gender: "",
     contactNumber: "",
     termsAccepted: false,
+    doctorDocument: null as File | null,
   });
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const { toast } = useToast();
 
-  const handleInputChange = (field: string, value: string | boolean) => {
+  const handleInputChange = (field: string, value: string | boolean | File | null) => {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 
@@ -46,6 +47,15 @@ export default function Register() {
       toast({
         title: "Terms required",
         description: "Please accept the terms and conditions",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (formData.role === "Doctor" && !formData.doctorDocument) {
+      toast({
+        title: "Document required",
+        description: "Please upload your medical degree or license",
         variant: "destructive",
       });
       return;
@@ -226,10 +236,30 @@ export default function Register() {
                   </div>
                 </RadioGroup>
                 {formData.role === "Doctor" && (
-                  <p className="text-sm text-muted-foreground bg-accent-light p-3 rounded-lg">
-                    <strong>Note:</strong> Doctor accounts require verification by our admin team. 
-                    You'll be notified once your credentials are verified.
-                  </p>
+                  <div className="space-y-3">
+                    <p className="text-sm text-muted-foreground bg-accent-light p-3 rounded-lg">
+                      <strong>Note:</strong> Doctor accounts require verification by our admin team. 
+                      You'll be notified once your credentials are verified.
+                    </p>
+                    
+                    <div className="space-y-2">
+                      <Label htmlFor="doctorDocument">Medical Degree/License Document *</Label>
+                      <div className="relative">
+                        <Upload className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                        <Input
+                          id="doctorDocument"
+                          type="file"
+                          accept=".pdf,.jpg,.jpeg,.png"
+                          onChange={(e) => handleInputChange("doctorDocument", e.target.files?.[0] || null)}
+                          className="pl-10"
+                          required
+                        />
+                      </div>
+                      <p className="text-xs text-muted-foreground">
+                        Upload your medical degree or medical license (PDF, JPG, PNG - Max 5MB)
+                      </p>
+                    </div>
+                  </div>
                 )}
               </div>
 

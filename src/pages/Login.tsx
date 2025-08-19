@@ -4,14 +4,12 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Heart, Mail, Lock, UserCheck } from "lucide-react";
+import { Heart, Mail, Lock } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState("Patient");
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const { toast } = useToast();
@@ -20,28 +18,18 @@ export default function Login() {
     e.preventDefault();
     setIsLoading(true);
 
-    // Simulate authentication
+    // Simulate authentication - role would be determined from database
     setTimeout(() => {
+      // Mock role determination (in real app, this comes from user data)
+      const userRole = "Patient"; // This would come from authentication response
+      
       toast({
         title: "Welcome back!",
-        description: `Logged in successfully as ${role}`,
+        description: "Successfully signed in to your account",
       });
       
-      // Redirect based on role
-      switch (role) {
-        case "Patient":
-          navigate("/dashboard");
-          break;
-        case "Doctor":
-          navigate("/dashboard");
-          break;
-        case "Admin":
-        case "SuperAdmin":
-          navigate("/admin");
-          break;
-        default:
-          navigate("/dashboard");
-      }
+      // Redirect to dashboard (role-specific content shown there)
+      navigate("/dashboard");
       setIsLoading(false);
     }, 1000);
   };
@@ -99,42 +87,6 @@ export default function Login() {
                 </div>
               </div>
 
-              <div className="space-y-3">
-                <Label className="text-sm font-medium flex items-center">
-                  <UserCheck className="mr-2 h-4 w-4" />
-                  Sign in as
-                </Label>
-                <RadioGroup
-                  value={role}
-                  onValueChange={setRole}
-                  className="grid grid-cols-2 gap-2"
-                >
-                  <div className="flex items-center space-x-2 border rounded-lg p-3 hover:bg-muted/50">
-                    <RadioGroupItem value="Patient" id="patient" />
-                    <Label htmlFor="patient" className="font-normal cursor-pointer flex-1">
-                      Patient
-                    </Label>
-                  </div>
-                  <div className="flex items-center space-x-2 border rounded-lg p-3 hover:bg-muted/50">
-                    <RadioGroupItem value="Doctor" id="doctor" />
-                    <Label htmlFor="doctor" className="font-normal cursor-pointer flex-1">
-                      Doctor
-                    </Label>
-                  </div>
-                  <div className="flex items-center space-x-2 border rounded-lg p-3 hover:bg-muted/50">
-                    <RadioGroupItem value="Admin" id="admin" />
-                    <Label htmlFor="admin" className="font-normal cursor-pointer flex-1">
-                      Admin
-                    </Label>
-                  </div>
-                  <div className="flex items-center space-x-2 border rounded-lg p-3 hover:bg-muted/50">
-                    <RadioGroupItem value="SuperAdmin" id="superadmin" />
-                    <Label htmlFor="superadmin" className="font-normal cursor-pointer flex-1 text-sm">
-                      Super Admin
-                    </Label>
-                  </div>
-                </RadioGroup>
-              </div>
 
               <Button type="submit" className="w-full" disabled={isLoading}>
                 {isLoading ? "Signing in..." : "Sign In"}
