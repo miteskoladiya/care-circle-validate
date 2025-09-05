@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Ignore TypeScript source files now that the project has been migrated to JS/JSX
+*.ts
+*.tsx
+*.d.ts
