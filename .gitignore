@@ -27,3 +27,10 @@ dist-ssr
 *.ts
 *.tsx
 *.d.ts
+
+# Ignore known auto-created helper files (local-only)
+scripts/findEnvUsage.*
+scripts/listTmpDoctorFiles.*
+scripts/cleanAutoFiles.*
+tmp/doctor-doc.txt
+tmp/testAuth.js
