@@ -7,6 +7,7 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Build outputs
 node_modules
 dist
 dist-ssr
@@ -23,12 +24,16 @@ dist-ssr
 *.sln
 *.sw?
 
-# Ignore TypeScript source files now that the project has been migrated to JS/JSX
+# TypeScript sources (project migrated to JS/JSX)
 *.ts
 *.tsx
 *.d.ts
 
-# Ignore known auto-created helper files (local-only)
+# Environment variables
+.env
+.env.*.local
+
+# Auto-created helper files (local only)
 scripts/findEnvUsage.*
 scripts/listTmpDoctorFiles.*
 scripts/cleanAutoFiles.*
